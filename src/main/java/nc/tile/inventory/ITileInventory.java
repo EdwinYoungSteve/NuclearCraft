@@ -72,9 +72,9 @@ public interface ITileInventory extends ITile, ISidedInventory {
 	default void setInventorySlotContents(int slot, ItemStack stack) {
 		@Nonnull NonNullList<ItemStack> stacks = getInventoryStacks();
 		ItemStack itemstack = stacks.get(slot);
-		boolean flag = !stack.isEmpty() && stack.isItemEqual(itemstack) && StackHelper.areItemStackTagsEqual(stack, itemstack);
+		boolean flag = !stack.isEmpty() && nc.util.StackHelper.isItemEqual(stack, itemstack) && StackHelper.areItemStackTagsEqual(stack, itemstack);
 		
-		if (stack.getCount() > getInventoryStackLimit()) {
+		if (StackHelper.getCount(stack) > getInventoryStackLimit()) {
 			stack.setCount(getInventoryStackLimit());
 		}
 		
@@ -251,13 +251,13 @@ public interface ITileInventory extends ITile, ISidedInventory {
 		ItemStack initialStack = stack.copy();
 		ItemStack remaining = NCInventoryHelper.addStackToInventory(handler, initialStack);
 		
-		if (remaining.getCount() >= initialStack.getCount()) {
+		if (StackHelper.getCount(remaining) >= StackHelper.getCount(initialStack)) {
 			return false;
 		}
 		
-		stack.shrink(initialStack.getCount() - remaining.getCount());
+		stack.shrink(StackHelper.getCount(initialStack) - StackHelper.getCount(remaining));
 		
-		if (stack.getCount() <= 0) {
+		if (StackHelper.getCount(stack) <= 0) {
 			stacks.set(slot, ItemStack.EMPTY);
 		}
 		

@@ -33,7 +33,7 @@ public class FurnaceFuelHandler implements IFuelHandler {
 	@Override
 	public int getBurnTime(ItemStack fuel) {
 		for (FuelPair pair : fuelPairs.get()) {
-			if (fuel.isItemEqual(pair.stack)) {
+			if (nc.util.StackHelper.isItemEqual(fuel, pair.stack)) {
 				return pair.burnTime;
 			}
 		}

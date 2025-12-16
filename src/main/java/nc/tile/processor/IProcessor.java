@@ -249,10 +249,10 @@ public interface IProcessor<TILE extends TileEntity & IProcessor<TILE, PACKET, I
 			else {
 				ItemStack stack = stacks.get(slot);
 				if (!stack.isEmpty()) {
-					if (!stack.isItemEqual(productStack)) {
+					if (!nc.util.StackHelper.isItemEqual(stack, productStack)) {
 						return false;
 					}
-					else if (outputSetting == ItemOutputSetting.DEFAULT && stack.getCount() + productMaxStackSize > getItemProductCapacity(slot, stack)) {
+					else if (outputSetting == ItemOutputSetting.DEFAULT && StackHelper.getCount(stack) + productMaxStackSize > getItemProductCapacity(slot, stack)) {
 						return false;
 					}
 				}
@@ -350,7 +350,7 @@ public interface IProcessor<TILE extends TileEntity & IProcessor<TILE, PACKET, I
 				stack.shrink(itemIngredientStackSize);
 			}
 			
-			if (stack.getCount() <= 0) {
+			if (StackHelper.getCount(stack) <= 0) {
 				stacks.set(slot, ItemStack.EMPTY);
 			}
 		}
@@ -422,7 +422,7 @@ public interface IProcessor<TILE extends TileEntity & IProcessor<TILE, PACKET, I
 				stacks.set(slot, nextStack);
 			}
 			else if (currentStack.isItemEqual(product.getStack())) {
-				int count = Math.min(getInventoryStackLimit(), currentStack.getCount() + nextStack.getCount());
+				int count = Math.min(getInventoryStackLimit(), StackHelper.getCount(currentStack) + StackHelper.getCount(nextStack));
 				currentStack.setCount(count);
 			}
 		}

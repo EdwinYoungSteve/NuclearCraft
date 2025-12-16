@@ -23,7 +23,7 @@ public interface IItemIngredient extends IIngredient<ItemStack> {
 		for (ItemStack stack : getInputStackList()) {
 			int meta = StackHelper.getMetadata(stack);
 			if (stack != null && !stack.isEmpty() && meta == OreDictionary.WILDCARD_VALUE) {
-				NonNullList<ItemStack> subStacks = new NonNullList<>(new ArrayList<>(), ItemStack.EMPTY);
+				NonNullList<ItemStack> subStacks = new NonNullList<>(new ArrayList<>(), StackHelper.emptyStack());
 				Item item = stack.getItem();
 				if (item instanceof ItemBlock) {
 					for (int i = 0; i < 16; ++i) {
@@ -31,7 +31,7 @@ public interface IItemIngredient extends IIngredient<ItemStack> {
 					}
 				}
 				else {
-					stack.getItem().getSubItems(CreativeTabs.SEARCH, subStacks);
+					stack.getItem().getSubItems(StackHelper.getSearchTab(), subStacks);
 				}
 				list.addAll(subStacks);
 			}

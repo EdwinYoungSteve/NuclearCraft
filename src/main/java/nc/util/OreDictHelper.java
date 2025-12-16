@@ -91,7 +91,7 @@ public class OreDictHelper {
 		}
 		ItemStack stack = StackHelper.blockStateToStack(world.getBlockState(pos));
 		for (ItemStack oreStack : stackList) {
-			if (oreStack.isItemEqual(stack)) {
+			if (nc.util.StackHelper.isItemEqual(oreStack, stack)) {
 				return true;
 			}
 		}

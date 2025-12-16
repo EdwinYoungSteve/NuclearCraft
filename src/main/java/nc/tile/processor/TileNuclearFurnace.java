@@ -61,9 +61,9 @@ public class TileNuclearFurnace extends TileEntity implements IBasicProcessor<Ti
 	@Override
 	public void setInventorySlotContents(int index, ItemStack stack) {
 		ItemStack itemstack = furnaceItemStacks.get(index);
-		boolean flag = !stack.isEmpty() && stack.isItemEqual(itemstack) && nc.util.StackHelper.areItemStackTagsEqual(stack, itemstack);
+		boolean flag = !stack.isEmpty() && nc.util.StackHelper.isItemEqual(stack, itemstack) && nc.util.StackHelper.areItemStackTagsEqual(stack, itemstack);
 		
-		if (stack.getCount() > getInventoryStackLimit()) {
+		if (StackHelper.getCount(stack) > getInventoryStackLimit()) {
 			stack.setCount(getInventoryStackLimit());
 		}
 		
@@ -251,7 +251,7 @@ public class TileNuclearFurnace extends TileEntity implements IBasicProcessor<Ti
 				if (!itemstack1.isItemEqual(itemstack)) {
 					return false;
 				}
-				int result = itemstack1.getCount() + itemstack.getCount();
+				int result = StackHelper.getCount(itemstack1) + StackHelper.getCount(itemstack);
 				return result <= getInventoryStackLimit() && result <= itemstack1.getMaxStackSize();
 			}
 		}
@@ -267,7 +267,7 @@ public class TileNuclearFurnace extends TileEntity implements IBasicProcessor<Ti
 				furnaceItemStacks.set(2, itemstack1.copy());
 			}
 			else if (itemstack2.getItem() == itemstack1.getItem()) {
-				itemstack2.grow(itemstack1.getCount());
+				itemstack2.grow(StackHelper.getCount(itemstack1));
 			}
 			if (itemstack.getItem() == Item.getItemFromBlock(Blocks.SPONGE) && StackHelper.getMetadata(itemstack) == 1 && !(furnaceItemStacks.get(1)).isEmpty() && (furnaceItemStacks.get(1)).getItem() == Items.BUCKET) {
 				furnaceItemStacks.set(1, new ItemStack(Items.WATER_BUCKET));

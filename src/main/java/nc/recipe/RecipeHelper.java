@@ -54,7 +54,7 @@ public class RecipeHelper {
 		}
 		else if (object instanceof ItemStack stack) {
 			ItemStack copy = stack.copy();
-			if (copy.getCount() <= 0) {
+			if (StackHelper.getCount(copy) <= 0) {
 				copy.setCount(1);
 			}
 			return copy;

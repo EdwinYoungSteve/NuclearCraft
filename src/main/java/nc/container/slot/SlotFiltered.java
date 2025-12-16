@@ -38,7 +38,7 @@ public class SlotFiltered extends Slot {
 				setFilterStack(ItemStack.EMPTY);
 				return false;
 			}
-			else if (!stack.isItemEqual(getFilterStack())) {
+			else if (!nc.util.StackHelper.isItemEqual(stack, getFilterStack())) {
 				ItemStack filter = stack.copy();
 				filter.setCount(1);
 				setFilterStack(filter);

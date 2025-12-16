@@ -69,7 +69,7 @@ public class ItemIngredient implements IItemIngredient {
 	@Override
 	public IngredientMatchResult match(Object object, IngredientSorption type) {
 		if (object instanceof ItemStack itemstack) {
-			if (!(StackHelper.isWildcard(stack) ? itemstack.getItem() == stack.getItem() : itemstack.isItemEqual(stack)) || !StackHelper.areItemStackTagsEqual(itemstack, stack)) {
+			if (!(StackHelper.isWildcard(stack) ? itemstack.getItem() == stack.getItem() : nc.util.StackHelper.isItemEqual(itemstack, stack)) || !StackHelper.areItemStackTagsEqual(itemstack, stack)) {
 				return IngredientMatchResult.FAIL;
 			}
 			return new IngredientMatchResult(type.checkStackSize(stack.getCount(), itemstack.getCount()), 0);

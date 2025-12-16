@@ -252,7 +252,7 @@ public abstract class AbstractProcessorElement {
 			else {
 				ItemStack stack = stacks.get(slot);
 				if (!stack.isEmpty()) {
-					if (!stack.isItemEqual(productStack)) {
+					if (!nc.util.StackHelper.isItemEqual(stack, productStack)) {
 						return false;
 					}
 					else if (outputSetting == ItemOutputSetting.DEFAULT && stack.getCount() + productMaxStackSize > getItemProductCapacity(slot, stack)) {
@@ -417,7 +417,7 @@ public abstract class AbstractProcessorElement {
 			if (currentStack.isEmpty()) {
 				stacks.set(slot, nextStack);
 			}
-			else if (currentStack.isItemEqual(product.getStack())) {
+			else if (nc.util.StackHelper.isItemEqual(currentStack, product.getStack())) {
 				int count = Math.min(getInventoryStackLimit(), currentStack.getCount() + nextStack.getCount());
 				currentStack.setCount(count);
 			}

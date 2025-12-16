@@ -528,7 +528,7 @@ public abstract class BasicRecipeHandler extends AbstractRecipeHandler<BasicReci
 	}
 	
 	public boolean isValidItemInput(ItemStack stack, int slot, List<ItemStack> itemInputs, List<Tank> fluidInputs, RecipeInfo<BasicRecipe> recipeInfo) {
-		return isValidInput(stack, slot, itemInputs, StreamHelper.map(fluidInputs, Tank::getFluid), recipeInfo, itemInputSize, fluidInputSize, ItemStack::isEmpty, x -> x == null || x.amount <= 0, x -> stack.isItemEqual(x) && StackHelper.areItemStackTagsEqual(stack, x), BasicRecipe::getItemIngredients, BasicRecipe::getFluidIngredients);
+		return isValidInput(stack, slot, itemInputs, StreamHelper.map(fluidInputs, Tank::getFluid), recipeInfo, itemInputSize, fluidInputSize, ItemStack::isEmpty, x -> x == null || x.amount <= 0, x -> StackHelper.isItemEqual(stack, x) && StackHelper.areItemStackTagsEqual(stack, x), BasicRecipe::getItemIngredients, BasicRecipe::getFluidIngredients);
 	}
 	
 	public boolean isValidFluidInput(FluidStack stack, int tankNumber, List<Tank> fluidInputs, List<ItemStack> itemInputs, RecipeInfo<BasicRecipe> recipeInfo) {
