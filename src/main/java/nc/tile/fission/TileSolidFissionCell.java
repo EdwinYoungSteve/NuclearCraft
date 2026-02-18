@@ -825,7 +825,7 @@ public class TileSolidFissionCell extends TileFissionPart implements IBasicProce
 			return false;
 		}
 		ItemStack filter = getFilterStacks().get(slot);
-		if (!filter.isEmpty() && !nc.util.StackHelper.isItemEqual(stack, filter)) {
+		if (!filter.isEmpty() && !stack.isItemEqual(filter)) {
 			return false;
 		}
 		return isItemValidForSlotInternal(slot, stack);

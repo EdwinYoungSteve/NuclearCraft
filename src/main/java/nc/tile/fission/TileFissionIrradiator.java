@@ -494,7 +494,7 @@ public class TileFissionIrradiator extends TileFissionPart implements IBasicProc
 			return false;
 		}
 		ItemStack filter = getFilterStacks().get(slot);
-		if (!filter.isEmpty() && !nc.util.StackHelper.isItemEqual(stack, filter)) {
+		if (!filter.isEmpty() && !stack.isItemEqual(filter)) {
 			return false;
 		}
 		return isItemValidForSlotInternal(slot, stack);
@@ -512,8 +512,8 @@ public class TileFissionIrradiator extends TileFissionPart implements IBasicProc
 	
 	@Override
 	public void clearAllSlots() {
-		Collections.fill(inventoryStacks, nc.util.StackHelper.emptyStack());
-		Collections.fill(consumedStacks, nc.util.StackHelper.emptyStack());
+		Collections.fill(inventoryStacks, ItemStack.EMPTY);
+		Collections.fill(consumedStacks, ItemStack.EMPTY);
 		refreshAll();
 	}
 	

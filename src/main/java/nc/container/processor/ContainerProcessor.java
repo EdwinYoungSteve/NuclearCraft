@@ -9,7 +9,6 @@ import nc.tile.processor.info.ProcessorContainerInfo;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import nc.util.StackHelper;
 import net.minecraft.tileentity.TileEntity;
 
 public abstract class ContainerProcessor<TILE extends TileEntity & IProcessor<TILE, PACKET, INFO>, PACKET extends ProcessorUpdatePacket, INFO extends ProcessorContainerInfo<TILE, PACKET, INFO>> extends ContainerInfoTile<TILE, PACKET, INFO> {
@@ -92,7 +91,7 @@ public abstract class ContainerProcessor<TILE extends TileEntity & IProcessor<TI
 				slot.onSlotChanged();
 			}
 			
-			if (StackHelper.getCount(stack) == StackHelper.getCount(stackCopy)) {
+			if (stack.getCount() == stackCopy.getCount()) {
 				return ItemStack.EMPTY;
 			}
 			slot.onTake(player, stack);

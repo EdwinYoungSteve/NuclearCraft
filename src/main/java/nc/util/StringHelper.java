@@ -23,30 +23,6 @@ public class StringHelper {
 	public static String starting(String s, int length) {
 		return s.substring(0, Math.min(length, s.length()));
 	}
-
-	public static String getEnumStringName(Object enumConst) {
-		if (enumConst == null) return null;
-		if (enumConst instanceof net.minecraft.util.IStringSerializable) {
-			try {
-				return ((net.minecraft.util.IStringSerializable) enumConst).getName();
-			}
-			catch (NoSuchMethodError ignored) {}
-		}
-		// Fallback to reflection
-		try {
-			java.lang.reflect.Method m = enumConst.getClass().getMethod("getName");
-			Object o = m.invoke(enumConst);
-			if (o instanceof String) return (String) o;
-		}
-		catch (Exception ignored) {}
-		if (enumConst instanceof Enum) {
-			try {
-				return ((Enum) enumConst).name();
-			}
-			catch (Exception ignored) {}
-		}
-		return enumConst.toString();
-	}
 	
 	public static String ending(String s, int length) {
 		return s.substring(Math.max(0, s.length() - length));

@@ -66,11 +66,11 @@ public abstract class TileUpgradableEnergyProcessor<TILE extends TileUpgradableE
 	}
 	
 	public int getSpeedCount() {
-		return 1 + StackHelper.getCount(getInventoryStacks().get(info.speedUpgradeSlot));
+		return 1 + getInventoryStacks().get(info.speedUpgradeSlot).getCount();
 	}
 	
 	public int getEnergyCount() {
-		return Math.min(getSpeedCount(), 1 + StackHelper.getCount(getInventoryStacks().get(info.energyUpgradeSlot)));
+		return Math.min(getSpeedCount(), 1 + getInventoryStacks().get(info.energyUpgradeSlot).getCount());
 	}
 	
 	// ITileInventory

@@ -1,7 +1,6 @@
 package nc.item;
 
 import nc.util.InfoHelper;
-import nc.util.StackHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
@@ -55,7 +54,7 @@ public class NCItem extends Item implements IInfoItem {
 	
 	protected boolean isStackOnHotbar(ItemStack itemStack, EntityPlayer player) {
 		for (ItemStack hotbarStack : player.inventory.mainInventory.subList(0, 9)) {
-			if (StackHelper.isItemEqual(itemStack, hotbarStack)) {
+			if (itemStack.isItemEqual(hotbarStack)) {
 				return true;
 			}
 		}
@@ -64,7 +63,7 @@ public class NCItem extends Item implements IInfoItem {
 	
 	protected boolean isStackInInventory(ItemStack itemStack, EntityPlayer player) {
 		for (ItemStack hotbarStack : player.inventory.mainInventory) {
-			if (StackHelper.isItemEqual(itemStack, hotbarStack)) {
+			if (itemStack.isItemEqual(hotbarStack)) {
 				return true;
 			}
 		}

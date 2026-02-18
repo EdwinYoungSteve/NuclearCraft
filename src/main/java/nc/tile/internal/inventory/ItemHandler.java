@@ -2,7 +2,6 @@ package nc.tile.internal.inventory;
 
 import nc.tile.inventory.ITileInventory;
 import net.minecraft.item.ItemStack;
-import nc.util.StackHelper;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.items.*;
 
@@ -44,7 +43,7 @@ public class ItemHandler<T extends ITileInventory> implements IItemHandlerModifi
 		
 		int m;
 		if (!stackInSlot.isEmpty()) {
-			if (StackHelper.getCount(stackInSlot) >= getSlotStackLimit(stackInSlot, slot)) {
+			if (stackInSlot.getCount() >= getSlotStackLimit(stackInSlot, slot)) {
 				return stack;
 			}
 			

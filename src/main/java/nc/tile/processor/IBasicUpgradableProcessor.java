@@ -17,7 +17,7 @@ public interface IBasicUpgradableProcessor<TILE extends TileEntity & IBasicUpgra
 		ItemStack held = player.getHeldItem(hand);
 		
 		ToBooleanBiFunction<Integer, ItemStack> tryInstallUpgrade = (x, y) -> {
-			if (nc.util.StackHelper.isItemEqual(held, y)) {
+			if (held.isItemEqual(y)) {
 				IItemHandler inv = getTile().getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, facing);
 				if (inv != null && inv.isItemValid(x, held)) {
 					if (player.isSneaking()) {

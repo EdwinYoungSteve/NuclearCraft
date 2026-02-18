@@ -31,8 +31,8 @@ public class CraftingRecipeHandler {
 	
 	public static void registerCraftingRecipes() {
 		if (ModCheck.patchouliLoaded()) {
-			addShapelessOreRecipe(ItemModBook.forBook("nuclearcraft:guide"), RegistryHelper.itemStackFromRegistry("minecraft:book"), "ingotUranium");
-			addShapelessOreRecipe(RegistryHelper.itemStackFromRegistry("minecraft:book"), ItemModBook.forBook("nuclearcraft:guide"));
+			addShapelessOreRecipe(ItemModBook.forBook("nuclearcraft:guide"), Items.BOOK, "ingotUranium");
+			addShapelessOreRecipe(Items.BOOK, ItemModBook.forBook("nuclearcraft:guide"));
 		}
 		
 		ingotBlockRecipes(IngotType.class, NCBlocks.ingot_block, NCItems.ingot);
@@ -61,25 +61,25 @@ public class CraftingRecipeHandler {
 		blockOpen(NCItems.californium, 15, "ingotCalifornium252", "blockCalifornium252");
 		
 		if (register_processor[0]) {
-			addShapedOreRecipe(NCBlocks.nuclear_furnace, "PTP", "TFT", "PTP", 'T', "ingotTough", 'P', "plateBasic", 'F', RegistryHelper.blockStackFromRegistry("minecraft:furnace"));
+			addShapedOreRecipe(NCBlocks.nuclear_furnace, "PTP", "TFT", "PTP", 'T', "ingotTough", 'P', "plateBasic", 'F', Blocks.FURNACE);
 		}
 		if (register_processor[1]) {
-			addShapedOreRecipe(NCBlocks.manufactory, "LRL", "FPF", "LSL", 'P', RegistryHelper.blockStackFromRegistry("minecraft:piston"), 'L', "ingotLead", 'S', "solenoidCopper", 'R', "dustRedstone", 'F', RegistryHelper.itemStackFromRegistry("minecraft:flint"));
+			addShapedOreRecipe(NCBlocks.manufactory, "LRL", "FPF", "LSL", 'P', Blocks.PISTON, 'L', "ingotLead", 'S', "solenoidCopper", 'R', "dustRedstone", 'F', Items.FLINT);
 		}
 		if (register_processor[2]) {
 			addShapedOreRecipe(NCBlocks.separator, "PMP", "RCR", "PMP", 'C', "chassis", 'P', "plateBasic", 'M', "motor", 'R', "dustRedstone");
 		}
 		if (register_processor[3]) {
-			addShapedOreRecipe(NCBlocks.decay_hastener, "PGP", "ECE", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'S', "solenoidCopper", 'G', "dustGlowstone", 'E', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
+			addShapedOreRecipe(NCBlocks.decay_hastener, "PGP", "ECE", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'S', "solenoidCopper", 'G', "dustGlowstone", 'E', Items.ENDER_PEARL);
 		}
 		if (register_processor[4]) {
 			addShapedOreRecipe(NCBlocks.fuel_reprocessor, "PBP", "TCT", "PAP", 'C', "chassis", 'P', "plateBasic", 'A', "actuator", 'T', "ingotTough", 'B', "ingotBoron");
 		}
 		if (register_processor[5]) {
-			addShapedOreRecipe(NCBlocks.alloy_furnace, "PRP", "BFB", "PSP", 'F', RegistryHelper.blockStackFromRegistry("minecraft:furnace"), 'P', "plateBasic", 'S', "solenoidCopper", 'R', "dustRedstone", 'B', RegistryHelper.itemStackFromRegistry("minecraft:brick"));
+			addShapedOreRecipe(NCBlocks.alloy_furnace, "PRP", "BFB", "PSP", 'F', Blocks.FURNACE, 'P', "plateBasic", 'S', "solenoidCopper", 'R', "dustRedstone", 'B', Items.BRICK);
 		}
 		if (register_processor[6]) {
-			addShapedOreRecipe(NCBlocks.infuser, "PBP", "GCG", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'G', "ingotGold", 'S', "servo", 'B', RegistryHelper.itemStackFromRegistry("minecraft:bucket"));
+			addShapedOreRecipe(NCBlocks.infuser, "PBP", "GCG", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'G', "ingotGold", 'S', "servo", 'B', Items.BUCKET);
 		}
 		if (register_processor[7]) {
 			addShapedOreRecipe(NCBlocks.melter, "PNP", "NCN", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'N', "ingotBrickNether", 'S', "servo");
@@ -94,7 +94,7 @@ public class CraftingRecipeHandler {
 			addShapedOreRecipe(NCBlocks.assembler, "PHP", "ACA", "PMP", 'C', "chassis", 'P', "plateBasic", 'H', "ingotHardCarbon", 'A', "actuator", 'M', "motor");
 		}
 		if (register_processor[11]) {
-			addShapedOreRecipe(NCBlocks.ingot_former, "PHP", "FCF", "PTP", 'C', "chassis", 'P', "plateBasic", 'F', "ingotFerroboron", 'T', "ingotTough", 'H', RegistryHelper.blockStackFromRegistry("minecraft:hopper"));
+			addShapedOreRecipe(NCBlocks.ingot_former, "PHP", "FCF", "PTP", 'C', "chassis", 'P', "plateBasic", 'F', "ingotFerroboron", 'T', "ingotTough", 'H', Blocks.HOPPER);
 		}
 		if (register_processor[12]) {
 			addShapedOreRecipe(NCBlocks.pressurizer, "PTP", "ACA", "PTP", 'C', "chassis", 'P', "plateAdvanced", 'T', "ingotTough", 'A', "actuator");
@@ -103,16 +103,16 @@ public class CraftingRecipeHandler {
 			addShapedOreRecipe(NCBlocks.chemical_reactor, "PMP", "GCG", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'G', "dustGlowstone", 'M', "motor", 'S', "servo");
 		}
 		if (register_processor[14]) {
-			addShapedOreRecipe(NCBlocks.salt_mixer, "PSP", "BCB", "PMP", 'C', "chassis", 'P', "plateBasic", 'B', RegistryHelper.itemStackFromRegistry("minecraft:bucket"), 'M', "motor", 'S', "ingotSteel");
+			addShapedOreRecipe(NCBlocks.salt_mixer, "PSP", "BCB", "PMP", 'C', "chassis", 'P', "plateBasic", 'B', Items.BUCKET, 'M', "motor", 'S', "ingotSteel");
 		}
 		if (register_processor[15]) {
-			addShapedOreRecipe(NCBlocks.crystallizer, "PSP", "SCS", "PUP", 'C', "chassis", 'P', "plateAdvanced", 'S', "solenoidCopper", 'U', RegistryHelper.itemStackFromRegistry("minecraft:cauldron"));
+			addShapedOreRecipe(NCBlocks.crystallizer, "PSP", "SCS", "PUP", 'C', "chassis", 'P', "plateAdvanced", 'S', "solenoidCopper", 'U', Items.CAULDRON);
 		}
 		if (register_processor[16]) {
-			addShapedOreRecipe(NCBlocks.enricher, "PHP", "LCL", "PMP", 'C', "chassis", 'P', "plateAdvanced", 'L', "gemLapis", 'M', "motor", 'H', RegistryHelper.blockStackFromRegistry("minecraft:hopper"));
+			addShapedOreRecipe(NCBlocks.enricher, "PHP", "LCL", "PMP", 'C', "chassis", 'P', "plateAdvanced", 'L', "gemLapis", 'M', "motor", 'H', Blocks.HOPPER);
 		}
 		if (register_processor[17]) {
-			addShapedOreRecipe(NCBlocks.extractor, "PMP", "BCB", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'M', "ingotMagnesium", 'S', "servo", 'B', RegistryHelper.itemStackFromRegistry("minecraft:bucket"));
+			addShapedOreRecipe(NCBlocks.extractor, "PMP", "BCB", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'M', "ingotMagnesium", 'S', "servo", 'B', Items.BUCKET);
 		}
 		if (register_processor[18]) {
 			addShapedOreRecipe(NCBlocks.centrifuge, "PFP", "MCM", "PSP", 'C', "chassis", 'P', "plateAdvanced", 'M', "motor", 'F', "ingotFerroboron", 'S', "servo");
@@ -121,7 +121,7 @@ public class CraftingRecipeHandler {
 			addShapedOreRecipe(NCBlocks.rock_crusher, "PMP", "ACA", "PTP", 'C', "chassis", 'P', "plateAdvanced", 'A', "actuator", 'T', "ingotTough", 'M', "motor");
 		}
 		if (register_processor[20]) {
-			addShapedOreRecipe(NCBlocks.electric_furnace, "LIL", "BFB", "LSL", 'F', RegistryHelper.blockStackFromRegistry("minecraft:furnace"), 'L', "ingotLead", 'S', "solenoidCopper", 'I', "ingotIron", 'B', RegistryHelper.itemStackFromRegistry("minecraft:brick"));
+			addShapedOreRecipe(NCBlocks.electric_furnace, "LIL", "BFB", "LSL", 'F', Blocks.FURNACE, 'L', "ingotLead", 'S', "solenoidCopper", 'I', "ingotIron", 'B', Items.BRICK);
 		}
 		
 		addShapedOreRecipe(NCBlocks.machine_interface, " A ", "MCM", " S ", 'C', "chassis", 'A', "actuator", 'M', "motor", 'S', "servo");
@@ -130,9 +130,9 @@ public class CraftingRecipeHandler {
 		addShapelessOreRecipe(NCBlocks.machine_frame, NCBlocks.machine_glass);
 		addShapelessOreRecipe(NCBlocks.machine_glass, NCBlocks.machine_frame, "blockGlass");
 		addShapedOreRecipe(new ItemStack(NCBlocks.machine_power_port, 4), "BPB", "RCR", "BPB", 'B', "ingotBronze", 'P', "ingotCopper", 'R', "dustRedstone", 'C', "chassis");
-		addShapedOreRecipe(new ItemStack(NCBlocks.machine_process_port, 4), "BHB", "SCS", "BHB", 'B', "ingotBronze", 'H', RegistryHelper.blockStackFromRegistry("minecraft:hopper"), 'S', "servo", 'C', "chassis");
+		addShapedOreRecipe(new ItemStack(NCBlocks.machine_process_port, 4), "BHB", "SCS", "BHB", 'B', "ingotBronze", 'H', Blocks.HOPPER, 'S', "servo", 'C', "chassis");
 		addShapedOreRecipe(new ItemStack(NCBlocks.machine_reservoir_port, 4), "BSB", "TCT", "BSB", 'B', "ingotBronze", 'S', "servo", 'T', "ingotSteel", 'C', "chassis");
-		addShapedOreRecipe(NCBlocks.machine_redstone_port, "BRB", "TCT", "BRB", 'B', "ingotBronze", 'R', "dustRedstone", 'T', RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"), 'C', "chassis");
+		addShapedOreRecipe(NCBlocks.machine_redstone_port, "BRB", "TCT", "BRB", 'B', "ingotBronze", 'R', "dustRedstone", 'T', Blocks.REDSTONE_TORCH, 'C', "chassis");
 		if (ModCheck.openComputersLoaded()) {
 			addShapedOreRecipe(NCBlocks.machine_computer_port, "BMB", "LCL", "BPB", 'B', "ingotBronze", 'M', RegistryHelper.itemStackFromRegistry("opencomputers:material:7"), 'L', RegistryHelper.blockStackFromRegistry("opencomputers:cable:0"), 'P', RegistryHelper.itemStackFromRegistry("opencomputers:material:4"), 'C', "chassis");
 		}
@@ -167,8 +167,8 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(NCBlocks.rtg_americium, "PGP", "GAG", "PGP", 'G', "ingotGraphite", 'P', "plateAdvanced", 'A', "ingotAmericium241All");
 		addShapedOreRecipe(NCBlocks.rtg_californium, "PGP", "GCG", "PGP", 'G', "ingotGraphite", 'P', "plateAdvanced", 'C', "ingotCalifornium250All");
 		
-		addShapedOreRecipe(NCBlocks.solar_panel_basic, "GQG", "PLP", "CPC", 'G', "dustGraphite", 'Q', "dustQuartz", 'P', RegistryHelper.blockStackFromRegistry("minecraft:heavy_weighted_pressure_plate"), 'L', "gemLapis", 'C', "solenoidCopper");
-		addShapedOreRecipe(NCBlocks.solar_panel_basic, "GQG", "PLP", "CPC", 'G', "dustGraphite", 'Q', "dustNetherQuartz", 'P', RegistryHelper.blockStackFromRegistry("minecraft:heavy_weighted_pressure_plate"), 'L', "gemLapis", 'C', "solenoidCopper");
+		addShapedOreRecipe(NCBlocks.solar_panel_basic, "GQG", "PLP", "CPC", 'G', "dustGraphite", 'Q', "dustQuartz", 'P', Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE, 'L', "gemLapis", 'C', "solenoidCopper");
+		addShapedOreRecipe(NCBlocks.solar_panel_basic, "GQG", "PLP", "CPC", 'G', "dustGraphite", 'Q', "dustNetherQuartz", 'P', Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE, 'L', "gemLapis", 'C', "solenoidCopper");
 		addShapedOreRecipe(NCBlocks.solar_panel_advanced, "PGP", "SSS", "PCP", 'S', NCBlocks.solar_panel_basic, 'G', "dustGraphite", 'P', "plateAdvanced", 'C', "solenoidCopper");
 		addShapedOreRecipe(NCBlocks.solar_panel_du, "PGP", "SSS", "PMP", 'S', NCBlocks.solar_panel_advanced, 'G', "dustGraphite", 'P', "plateDU", 'M', "solenoidMagnesiumDiboride");
 		addShapedOreRecipe(NCBlocks.solar_panel_elite, "PBP", "SSS", "PMP", 'S', NCBlocks.solar_panel_du, 'B', "gemBoronArsenide", 'P', "plateElite", 'M', "solenoidMagnesiumDiboride");
@@ -206,7 +206,7 @@ public class CraftingRecipeHandler {
 		}
 		
 		if (register_passive[2]) {
-			addShapedOreRecipe(NCBlocks.nitrogen_collector, "PIP", "B B", "PIP", 'I', "ingotBeryllium", 'P', "plateAdvanced", 'B', RegistryHelper.itemStackFromRegistry("minecraft:bucket"));
+			addShapedOreRecipe(NCBlocks.nitrogen_collector, "PIP", "B B", "PIP", 'I', "ingotBeryllium", 'P', "plateAdvanced", 'B', Items.BUCKET);
 			addShapedOreRecipe(NCBlocks.nitrogen_collector_compact, "CCC", "CIC", "CCC", 'C', NCBlocks.nitrogen_collector, 'I', "ingotBronze");
 			addShapedOreRecipe(NCBlocks.nitrogen_collector_dense, "CCC", "CIC", "CCC", 'C', NCBlocks.nitrogen_collector_compact, 'I', "ingotGold");
 		}
@@ -231,9 +231,9 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_reflector, 2, 0), "BGB", "GFG", "BGB", 'B', "ingotBeryllium", 'G', "ingotGraphite", 'F', "steelFrame");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_reflector, 2, 1), "LSL", "SFS", "LSL", 'L', "ingotLead", 'S', "ingotSteel", 'F', "steelFrame");
 		
-		addShapedOreRecipe(new ItemStack(NCBlocks.fission_irradiator_port, 4), "PHP", "ZFZ", "PHP", 'P', "plateBasic", 'H', RegistryHelper.blockStackFromRegistry("minecraft:hopper"), 'Z', "ingotZirconium", 'F', "steelFrame");
+		addShapedOreRecipe(new ItemStack(NCBlocks.fission_irradiator_port, 4), "PHP", "ZFZ", "PHP", 'P', "plateBasic", 'H', Blocks.HOPPER, 'Z', "ingotZirconium", 'F', "steelFrame");
 		
-		addShapedOreRecipe(new ItemStack(NCBlocks.fission_cell_port, 4), "PHP", "ZFZ", "PHP", 'P', "plateAdvanced", 'H', RegistryHelper.blockStackFromRegistry("minecraft:hopper"), 'Z', "ingotZircaloy", 'F', "steelFrame");
+		addShapedOreRecipe(new ItemStack(NCBlocks.fission_cell_port, 4), "PHP", "ZFZ", "PHP", 'P', "plateAdvanced", 'H', Blocks.HOPPER, 'Z', "ingotZircaloy", 'F', "steelFrame");
 		
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_vessel_port, 4), "PSP", "ZFZ", "PSP", 'P', "plateElite", 'S', "servo", 'Z', "ingotZircaloy", 'F', "steelFrame");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 4, 0), "PSP", "TFT", "PSP", 'P', "plateElite", 'S', "servo", 'T', "ingotThermoconducting", 'F', "steelFrame");
@@ -241,14 +241,14 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 2), "RRR", "RPR", "RRR", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'R', "dustRedstone");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 3), "QQQ", "QPQ", "QQQ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'Q', "gemQuartz");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 4), "DOD", "OPO", "DOD", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'O', "obsidian", 'D', "dustObsidian");
-		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 5), "INI", "NPN", "INI", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'N', RegistryHelper.blockStackFromRegistry("minecraft:nether_brick"), 'I', "ingotBrickNether");
+		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 5), "INI", "NPN", "INI", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'N', Blocks.NETHER_BRICK, 'I', "ingotBrickNether");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 6), "GGG", "GPG", "GGG", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'G', "dustGlowstone");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 7), "LLL", "LPL", "LLL", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'L', "gemLapis");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 8), " G ", "GPG", " G ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'G', "ingotGold");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 9), " R ", "RPR", " R ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'R', "gemPrismarine");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 10), "BBB", "BPB", "BBB", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'B', "slimeball");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 11), "DED", "EPE", "DED", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'E', "endstone", 'D', "dustEndstone");
-		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 12), "CBC", "BPB", "CBC", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'B', RegistryHelper.blockStackFromRegistry("minecraft:purpur_block"), 'C', RegistryHelper.itemStackFromRegistry("minecraft:chorus_fruit_popped"));
+		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 12), "CBC", "BPB", "CBC", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'B', Blocks.PURPUR_BLOCK, 'C', Items.CHORUS_FRUIT_POPPED);
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 13), " D ", "DPD", " D ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'D', "gemDiamond");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 14), " E ", "EPE", " E ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'E', "gemEmerald");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port, 1, 15), " C ", "CPC", " C ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'C', "ingotCopper");
@@ -269,8 +269,8 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port2, 1, 14), " E ", "EPE", " E ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'E', "ingotEnderium");
 		addShapedOreRecipe(new ItemStack(NCBlocks.fission_heater_port2, 1, 15), " C ", "CPC", " C ", 'P', new ItemStack(NCBlocks.fission_heater_port, 1, 0), 'C', "dustCryotheum");
 		
-		addShapedOreRecipe(new ItemStack(NCBlocks.fission_source_manager, 4), "PEP", "RFR", "PEP", 'P', "plateBasic", 'E', "dustEnergetic", 'R', RegistryHelper.itemStackFromRegistry("minecraft:repeater"), 'F', "steelFrame");
-		addShapedOreRecipe(new ItemStack(NCBlocks.fission_shield_manager, 4), "PTP", "RFR", "PTP", 'P', "plateBasic", 'T', "ingotTough", 'R', RegistryHelper.itemStackFromRegistry("minecraft:repeater"), 'F', "steelFrame");
+		addShapedOreRecipe(new ItemStack(NCBlocks.fission_source_manager, 4), "PEP", "RFR", "PEP", 'P', "plateBasic", 'E', "dustEnergetic", 'R', Items.REPEATER, 'F', "steelFrame");
+		addShapedOreRecipe(new ItemStack(NCBlocks.fission_shield_manager, 4), "PTP", "RFR", "PTP", 'P', "plateBasic", 'T', "ingotTough", 'R', Items.REPEATER, 'F', "steelFrame");
 		
 		addShapedOreRecipe(NCBlocks.solid_fission_controller, "PTP", "HFH", "PTP", 'P', "plateAdvanced", 'T', "ingotTough", 'H', "ingotHardCarbon", 'F', "steelFrame");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_cell, 4), "PTP", "ZFZ", "PTP", 'P', "plateAdvanced", 'T', "ingotTough", 'Z', "ingotZircaloy", 'F', "steelFrame");
@@ -279,14 +279,14 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 2), "RRR", "RSR", "RRR", 'S', "emptyHeatSink", 'R', "dustRedstone");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 3), "QQQ", "QSQ", "QQQ", 'S', "emptyHeatSink", 'Q', "gemQuartz");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 4), "DOD", "OSO", "DOD", 'S', "emptyHeatSink", 'O', "obsidian", 'D', "dustObsidian");
-		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 5), "INI", "NSN", "INI", 'S', "emptyHeatSink", 'N', RegistryHelper.blockStackFromRegistry("minecraft:nether_brick"), 'I', "ingotBrickNether");
+		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 5), "INI", "NSN", "INI", 'S', "emptyHeatSink", 'N', Blocks.NETHER_BRICK, 'I', "ingotBrickNether");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 6), "GGG", "GSG", "GGG", 'S', "emptyHeatSink", 'G', "dustGlowstone");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 7), "LLL", "LSL", "LLL", 'S', "emptyHeatSink", 'L', "gemLapis");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 8), " G ", "GSG", " G ", 'S', "emptyHeatSink", 'G', "ingotGold");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 9), " P ", "PSP", " P ", 'S', "emptyHeatSink", 'P', "gemPrismarine");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 10), "BBB", "BSB", "BBB", 'S', "emptyHeatSink", 'B', "slimeball");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 11), "DED", "ESE", "DED", 'S', "emptyHeatSink", 'E', "endstone", 'D', "dustEndstone");
-		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 12), "CPC", "PSP", "CPC", 'S', "emptyHeatSink", 'P', RegistryHelper.blockStackFromRegistry("minecraft:purpur_block"), 'C', RegistryHelper.itemStackFromRegistry("minecraft:chorus_fruit_popped"));
+		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 12), "CPC", "PSP", "CPC", 'S', "emptyHeatSink", 'P', Blocks.PURPUR_BLOCK, 'C', Items.CHORUS_FRUIT_POPPED);
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 13), " D ", "DSD", " D ", 'S', "emptyHeatSink", 'D', "gemDiamond");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 14), " E ", "ESE", " E ", 'S', "emptyHeatSink", 'E', "gemEmerald");
 		addShapedOreRecipe(new ItemStack(NCBlocks.solid_fission_sink, 1, 15), " C ", "CSC", " C ", 'S', "emptyHeatSink", 'C', "ingotCopper");
@@ -314,14 +314,14 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 2), "RRR", "RHR", "RRR", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'R', "dustRedstone");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 3), "QQQ", "QHQ", "QQQ", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'Q', "gemQuartz");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 4), "DOD", "OHO", "DOD", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'O', "obsidian", 'D', "dustObsidian");
-		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 5), "INI", "NHN", "INI", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'N', RegistryHelper.blockStackFromRegistry("minecraft:nether_brick"), 'I', "ingotBrickNether");
+		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 5), "INI", "NHN", "INI", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'N', Blocks.NETHER_BRICK, 'I', "ingotBrickNether");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 6), "GGG", "GHG", "GGG", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'G', "dustGlowstone");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 7), "LLL", "LHL", "LLL", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'L', "gemLapis");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 8), " G ", "GHG", " G ", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'G', "ingotGold");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 9), " P ", "PHP", " P ", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'P', "gemPrismarine");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 10), "BBB", "BHB", "BBB", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'B', "slimeball");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 11), "DED", "EHE", "DED", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'E', "endstone", 'D', "dustEndstone");
-		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 12), "CPC", "PHP", "CPC", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'P', RegistryHelper.blockStackFromRegistry("minecraft:purpur_block"), 'C', RegistryHelper.itemStackFromRegistry("minecraft:chorus_fruit_popped"));
+		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 12), "CPC", "PHP", "CPC", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'P', Blocks.PURPUR_BLOCK, 'C', Items.CHORUS_FRUIT_POPPED);
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 13), " D ", "DHD", " D ", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'D', "gemDiamond");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 14), " E ", "EHE", " E ", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'E', "gemEmerald");
 		addShapedOreRecipe(new ItemStack(NCBlocks.salt_fission_heater, 1, 15), " C ", "CHC", " C ", 'H', new ItemStack(NCBlocks.salt_fission_heater, 1, 0), 'C', "ingotCopper");
@@ -356,7 +356,7 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.heat_exchanger_tube_hard_carbon, 8), "SHS", "HFH", "SVS", 'S', "ingotSteel", 'H', "ingotHardCarbon", 'F', "steelFrame", 'V', "servo");
 		addShapedOreRecipe(new ItemStack(NCBlocks.heat_exchanger_tube_thermoconducting, 8), "STS", "TFT", "SVS", 'S', "ingotSteel", 'T', "ingotThermoconducting", 'F', "steelFrame", 'V', "servo");
 		addShapelessOreRecipe(NCBlocks.heat_exchanger_baffle, NCBlocks.heat_exchanger_casing);
-		addShapedOreRecipe(NCBlocks.heat_exchanger_redstone_port, "SRS", "TFT", "SRS", 'S', "ingotSteel", 'R', "dustRedstone", 'T', RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"), 'F', "steelFrame");
+		addShapedOreRecipe(NCBlocks.heat_exchanger_redstone_port, "SRS", "TFT", "SRS", 'S', "ingotSteel", 'R', "dustRedstone", 'T', Blocks.REDSTONE_TORCH, 'F', "steelFrame");
 		if (ModCheck.openComputersLoaded()) {
 			addShapedOreRecipe(NCBlocks.heat_exchanger_computer_port, "SMS", "CFC", "SPS", 'S', "ingotSteel", 'M', RegistryHelper.itemStackFromRegistry("opencomputers:material:7"), 'C', RegistryHelper.blockStackFromRegistry("opencomputers:cable:0"), 'P', RegistryHelper.itemStackFromRegistry("opencomputers:material:4"), 'F', "steelFrame");
 		}
@@ -380,7 +380,7 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCBlocks.turbine_coil_connector, 4), "HHH", "HTH", "HHH", 'T', "ingotTough", 'H', "ingotHSLASteel");
 		addShapedOreRecipe(new ItemStack(NCBlocks.turbine_inlet, 4), "STS", "VFV", "STS", 'S', "ingotHSLASteel", 'T', "ingotTough", 'V', "servo", 'F', "steelFrame");
 		addShapedOreRecipe(new ItemStack(NCBlocks.turbine_outlet, 4), "SSS", "VFV", "SSS", 'S', "ingotHSLASteel", 'V', "servo", 'F', "steelFrame");
-		addShapedOreRecipe(NCBlocks.turbine_redstone_port, "SRS", "TFT", "SRS", 'S', "ingotHSLASteel", 'R', "dustRedstone", 'T', RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"), 'F', "steelFrame");
+		addShapedOreRecipe(NCBlocks.turbine_redstone_port, "SRS", "TFT", "SRS", 'S', "ingotHSLASteel", 'R', "dustRedstone", 'T', Blocks.REDSTONE_TORCH, 'F', "steelFrame");
 		if (ModCheck.openComputersLoaded()) {
 			addShapedOreRecipe(NCBlocks.turbine_computer_port, "SMS", "CFC", "SPS", 'S', "ingotHSLASteel", 'M', RegistryHelper.itemStackFromRegistry("opencomputers:material:7"), 'C', RegistryHelper.blockStackFromRegistry("opencomputers:cable:0"), 'P', RegistryHelper.itemStackFromRegistry("opencomputers:material:4"), 'F', "steelFrame");
 		}
@@ -394,15 +394,15 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(new ItemStack(NCItems.part, 2, 5), "MM", "TT", "MM", 'M', "ingotMagnesiumDiboride", 'T', "ingotTough");
 		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 7), "F F", "RSR", "SCS", 'F', "ingotFerroboron", 'S', "ingotSteel", 'C', "ingotCopper", 'R', "dustRedstone");
 		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 8), "SSG", "CCI", "SSG", 'G', "nuggetGold", 'S', "ingotSteel", 'I', "ingotIron", 'C', "solenoidCopper");
-		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 9), "  S", "FP ", "CF ", 'F', "ingotFerroboron", 'S', "ingotSteel", 'P', RegistryHelper.blockStackFromRegistry("minecraft:piston"), 'C', "ingotCopper");
+		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 9), "  S", "FP ", "CF ", 'F', "ingotFerroboron", 'S', "ingotSteel", 'P', Blocks.PISTON, 'C', "ingotCopper");
 		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 10), "LSL", "STS", "LSL", 'L', "ingotLead", 'T', "ingotTough", 'S', "ingotSteel");
 		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 11), "PTP", "I I", "PTP", 'P', "plateBasic", 'I', "ingotIron", 'T', "ingotTin");
 		addShapedOreRecipe(new ItemStack(NCItems.part, 1, 12), "STS", "TBT", "STS", 'S', "ingotSteel", 'B', "ingotBronze", 'T', "ingotTough");
 		addShapedOreRecipe(new ItemStack(NCItems.part, 8, 14), "PSP", "T T", "PSP", 'P', "plateAdvanced", 'S', "ingotSteel", 'T', "ingotTough");
 		
-		addShapedOreRecipe(new ItemStack(NCItems.upgrade, 1, 0), "LRL", "RPR", "LRL", 'L', "gemLapis", 'R', "dustRedstone", 'P', RegistryHelper.blockStackFromRegistry("minecraft:heavy_weighted_pressure_plate"));
-		addShapedOreRecipe(new ItemStack(NCItems.upgrade, 1, 1), "OQO", "QPQ", "OQO", 'O', "dustObsidian", 'Q', "dustQuartz", 'P', RegistryHelper.blockStackFromRegistry("minecraft:light_weighted_pressure_plate"));
-		addShapedOreRecipe(new ItemStack(NCItems.upgrade, 1, 1), "OQO", "QPQ", "OQO", 'O', "dustObsidian", 'Q', "dustNetherQuartz", 'P', RegistryHelper.blockStackFromRegistry("minecraft:light_weighted_pressure_plate"));
+		addShapedOreRecipe(new ItemStack(NCItems.upgrade, 1, 0), "LRL", "RPR", "LRL", 'L', "gemLapis", 'R', "dustRedstone", 'P', Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE);
+		addShapedOreRecipe(new ItemStack(NCItems.upgrade, 1, 1), "OQO", "QPQ", "OQO", 'O', "dustObsidian", 'Q', "dustQuartz", 'P', Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE);
+		addShapedOreRecipe(new ItemStack(NCItems.upgrade, 1, 1), "OQO", "QPQ", "OQO", 'O', "dustObsidian", 'Q', "dustNetherQuartz", 'P', Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE);
 		
 		tools("ingotBoron", NCTools.sword_boron, NCTools.pickaxe_boron, NCTools.shovel_boron, NCTools.axe_boron, NCTools.hoe_boron, NCTools.spaxelhoe_boron);
 		tools("ingotTough", NCTools.sword_tough, NCTools.pickaxe_tough, NCTools.shovel_tough, NCTools.axe_tough, NCTools.hoe_tough, NCTools.spaxelhoe_tough);
@@ -431,14 +431,14 @@ public class CraftingRecipeHandler {
 		addShapelessOreRecipe(new ItemStack(NCItems.compound, 2, 9), "dustObsidian", "dustObsidian", "dustObsidian", "dustObsidian", "dustEndstone");
 		addShapelessOreRecipe(new ItemStack(NCItems.compound, 2, 10), "dustGraphite", "dustManganese");
 		
-		addShapedOreRecipe(NCItems.portable_ender_chest, " S ", "WCW", "LWL", 'C', "chestEnder", 'W', RegistryHelper.blockStackFromRegistry("minecraft:wool:10"), 'S', "string", 'L', "ingotTough");
-		addShapedOreRecipe(NCItems.portable_ender_chest, " S ", "WCW", "LWL", 'C', "chestEnder", 'W', RegistryHelper.blockStackFromRegistry("minecraft:wool:15"), 'S', "string", 'L', "ingotTough");
-
-		addShapelessOreRecipe(new ItemStack(NCItems.dominos, 4), RegistryHelper.itemStackFromRegistry("minecraft:bread"), RegistryHelper.itemStackFromRegistry("minecraft:bread"), RegistryHelper.itemStackFromRegistry("minecraft:bread"), RegistryHelper.itemStackFromRegistry("minecraft:cooked_porkchop"), RegistryHelper.itemStackFromRegistry("minecraft:cooked_beef"), RegistryHelper.itemStackFromRegistry("minecraft:cooked_chicken"), RegistryHelper.itemStackFromRegistry("minecraft:cooked_mutton"), RegistryHelper.blockStackFromRegistry("minecraft:brown_mushroom"), RegistryHelper.blockStackFromRegistry("minecraft:brown_mushroom"));
-		addShapelessOreRecipe(RegistryHelper.blockStackFromRegistry("minecraft:brown_mushroom"), NCBlocks.glowing_mushroom);
-		addShapelessOreRecipe(NCBlocks.glowing_mushroom, RegistryHelper.blockStackFromRegistry("minecraft:brown_mushroom"), "dustGlowstone");
+		addShapedOreRecipe(NCItems.portable_ender_chest, " S ", "WCW", "LWL", 'C', "chestEnder", 'W', new ItemStack(Blocks.WOOL, 1, 10), 'S', "string", 'L', "ingotTough");
+		addShapedOreRecipe(NCItems.portable_ender_chest, " S ", "WCW", "LWL", 'C', "chestEnder", 'W', new ItemStack(Blocks.WOOL, 1, 15), 'S', "string", 'L', "ingotTough");
 		
-		addShapedOreRecipe(RegistryHelper.itemStackFromRegistry("minecraft:cookie", 8), "FCF", 'F', "dustWheat", 'C', "dustCocoa");
+		addShapelessOreRecipe(new ItemStack(NCItems.dominos, 4), Items.BREAD, Items.BREAD, Items.BREAD, Items.COOKED_PORKCHOP, Items.COOKED_BEEF, Items.COOKED_CHICKEN, Items.COOKED_MUTTON, Blocks.BROWN_MUSHROOM, Blocks.BROWN_MUSHROOM);
+		addShapelessOreRecipe(Blocks.BROWN_MUSHROOM, NCBlocks.glowing_mushroom);
+		addShapelessOreRecipe(NCBlocks.glowing_mushroom, Blocks.BROWN_MUSHROOM, "dustGlowstone");
+		
+		addShapedOreRecipe(new ItemStack(Items.COOKIE, 8), "FCF", 'F', "dustWheat", 'C', "dustCocoa");
 		addShapelessOreRecipe(NCItems.smore, NCItems.graham_cracker, "ingotChocolate", "ingotMarshmallow", NCItems.graham_cracker);
 		addShapelessOreRecipe(NCItems.moresmore, NCItems.smore, "ingotChocolate", "ingotMarshmallow", NCItems.smore);
 		addShapelessOreRecipe(NCItems.foursmore, NCItems.moresmore, "ingotChocolate", "ingotMarshmallow", NCItems.moresmore);
@@ -446,7 +446,7 @@ public class CraftingRecipeHandler {
 		addShapedOreRecipe(NCItems.geiger_counter, "SFF", "CRR", "BFF", 'S', "ingotSteel", 'F', "ingotFerroboron", 'C', "ingotCopper", 'R', "dustRedstone", 'B', "bioplastic");
 		addShapedOreRecipe(NCItems.radiation_badge, " C ", "SRS", " L ", 'C', "ingotCopper", 'S', "string", 'R', "dustRedstone", 'L', "ingotLead");
 		
-		addShapedOreRecipe(NCItems.rad_x, "EPE", "PRP", "PBP", 'E', "dustEnergetic", 'P', "bioplastic", 'R', NCItems.radaway, 'B', RegistryHelper.itemStackFromRegistry("minecraft:blaze_powder"));
+		addShapedOreRecipe(NCItems.rad_x, "EPE", "PRP", "PBP", 'E', "dustEnergetic", 'P', "bioplastic", 'R', NCItems.radaway, 'B', Items.BLAZE_POWDER);
 		
 		addShapedOreRecipe(NCBlocks.radiation_scrubber, "PCP", "CEC", "PCP", 'P', "plateElite", 'E', "ingotExtreme", 'C', "dustBorax");
 		
@@ -463,31 +463,31 @@ public class CraftingRecipeHandler {
 		addShapelessOreRecipe(NCItems.record_money_for_nothing, "record", "ingotSilver");
 		addShapelessOreRecipe(NCItems.record_hyperspace, "record", "dustDimensional");
 		
-		addShapedOreRecipe(NCArmor.helm_hazmat, "YWY", "SLS", "BIB", 'Y', "dyeYellow", 'W', "wool", 'L', RegistryHelper.itemStackFromRegistry("minecraft:leather_helmet"), 'B', "bioplastic", 'I', "ingotSteel", 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
-		addShapedOreRecipe(NCArmor.chest_hazmat, "WSW", "YLY", "SWS", 'Y', "dyeYellow", 'W', "wool", 'L', RegistryHelper.itemStackFromRegistry("minecraft:leather_chestplate"), 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
-		addShapedOreRecipe(NCArmor.legs_hazmat, "YBY", "SLS", "W W", 'Y', "dyeYellow", 'W', "wool", 'L', RegistryHelper.itemStackFromRegistry("minecraft:leather_leggings"), 'B', "bioplastic", 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
-		addShapedOreRecipe(NCArmor.boots_hazmat, "SDS", "BLB", 'D', "dyeBlack", 'L', RegistryHelper.itemStackFromRegistry("minecraft:leather_boots"), 'B', "bioplastic", 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
+		addShapedOreRecipe(NCArmor.helm_hazmat, "YWY", "SLS", "BIB", 'Y', "dyeYellow", 'W', "wool", 'L', Items.LEATHER_HELMET, 'B', "bioplastic", 'I', "ingotSteel", 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
+		addShapedOreRecipe(NCArmor.chest_hazmat, "WSW", "YLY", "SWS", 'Y', "dyeYellow", 'W', "wool", 'L', Items.LEATHER_CHESTPLATE, 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
+		addShapedOreRecipe(NCArmor.legs_hazmat, "YBY", "SLS", "W W", 'Y', "dyeYellow", 'W', "wool", 'L', Items.LEATHER_LEGGINGS, 'B', "bioplastic", 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
+		addShapedOreRecipe(NCArmor.boots_hazmat, "SDS", "BLB", 'D', "dyeBlack", 'L', Items.LEATHER_BOOTS, 'B', "bioplastic", 'S', new ItemStack(NCItems.rad_shielding, 1, 2));
 		
 		if (register_quantum) {
-			addShapedOreRecipe(NCBlocks.quantum_computer_controller, "EPE", "PFP", "EPE", 'E', "ingotExtreme", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"), 'F', "steelFrame");
-			addShapedOreRecipe(NCBlocks.quantum_computer_qubit, "ESE", "PRP", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"), 'R', "blockRedstone");
+			addShapedOreRecipe(NCBlocks.quantum_computer_controller, "EPE", "PFP", "EPE", 'E', "ingotExtreme", 'P', Items.ENDER_PEARL, 'F', "steelFrame");
+			addShapedOreRecipe(NCBlocks.quantum_computer_qubit, "ESE", "PRP", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL, 'R', "blockRedstone");
 			
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 0), "SES", "EPE", "SES", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 1), "SES", "EPE", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 2), "SSS", "EPE", "SSS", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 3), "SES", "SPS", "SES", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 4), "ESS", "EPE", "SSE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 6), "SSS", "EPE", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 8), "SSS", "SPS", "SEE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 0), "SES", "EPE", "SES", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 1), "SES", "EPE", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 2), "SSS", "EPE", "SSS", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 3), "SES", "SPS", "SES", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 4), "ESS", "EPE", "SSE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 6), "SSS", "EPE", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 8), "SSS", "SPS", "SEE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
 			
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 5), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 4));
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 4), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 5));
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 7), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 6));
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 6), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 7));
 			
-			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 9), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 0), RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"));
-			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 10), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 1), RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"));
-			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 11), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 2), RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"));
+			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 9), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 0), Blocks.REDSTONE_TORCH);
+			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 10), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 1), Blocks.REDSTONE_TORCH);
+			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 11), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, 2), Blocks.REDSTONE_TORCH);
 			
 			for (int i = 0; i < QuantumGateEnums.BasicType.values().length; ++i) {
 				addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, i), new ItemStack(NCBlocks.quantum_computer_gate_single, 1, i), "dustEnergetic");
@@ -496,24 +496,24 @@ public class CraftingRecipeHandler {
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 4), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 5));
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 6), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 7));
 			
-			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 9), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 0), RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"));
-			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 10), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 1), RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"));
-			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 11), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 2), RegistryHelper.blockStackFromRegistry("minecraft:redstone_torch"));
+			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 9), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 0), Blocks.REDSTONE_TORCH);
+			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 10), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 1), Blocks.REDSTONE_TORCH);
+			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 11), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, 2), Blocks.REDSTONE_TORCH);
 			
 			for (int i : new int[] {0, 1, 2, 3, 4, 6, 8, 9, 10, 11}) {
 				addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_single, 1, i), new ItemStack(NCBlocks.quantum_computer_gate_control, 1, i));
 			}
 			
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_swap, 1, 0), "EES", "EPE", "SEE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_swap, 1, 0), "EES", "EPE", "SEE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL);
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_swap, 1, 1), new ItemStack(NCBlocks.quantum_computer_gate_swap, 1, 0), "dustEnergetic");
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_gate_swap, 1, 0), new ItemStack(NCBlocks.quantum_computer_gate_swap, 1, 1));
 			
 			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_connector, 8), "ESE", "S S", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel");
 			if (ModCheck.openComputersLoaded()) {
-				addShapedOreRecipe(NCBlocks.quantum_computer_port, "EME", "CNC", "EPE", 'E', "ingotExtreme", 'M', RegistryHelper.itemStackFromRegistry("opencomputers:material:7"), 'C', RegistryHelper.blockStackFromRegistry("opencomputers:cable:0"), 'P', RegistryHelper.itemStackFromRegistry("opencomputers:material:4"), 'N', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"));
+				addShapedOreRecipe(NCBlocks.quantum_computer_port, "EME", "CNC", "EPE", 'E', "ingotExtreme", 'M', RegistryHelper.itemStackFromRegistry("opencomputers:material:7"), 'C', RegistryHelper.blockStackFromRegistry("opencomputers:cable:0"), 'P', RegistryHelper.itemStackFromRegistry("opencomputers:material:4"), 'N', Items.ENDER_PEARL);
 			}
 			
-			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_code_generator, 1, 0), "ESE", "PBP", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', RegistryHelper.itemStackFromRegistry("minecraft:ender_pearl"), 'B', RegistryHelper.itemStackFromRegistry("minecraft:writable_book"));
+			addShapedOreRecipe(new ItemStack(NCBlocks.quantum_computer_code_generator, 1, 0), "ESE", "PBP", "ESE", 'E', "ingotExtreme", 'S', "ingotSteel", 'P', Items.ENDER_PEARL, 'B', Items.WRITABLE_BOOK);
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_code_generator, 1, 0), new ItemStack(NCBlocks.quantum_computer_code_generator, 1, 1));
 			addShapelessOreRecipe(new ItemStack(NCBlocks.quantum_computer_code_generator, 1, 1), new ItemStack(NCBlocks.quantum_computer_code_generator, 1, 0));
 		}
@@ -523,8 +523,8 @@ public class CraftingRecipeHandler {
 		if (radiation_shielding_default_recipes) {
 			for (Item item : ForgeRegistries.ITEMS.getValuesCollection()) {
 				if (ArmorHelper.isArmor(item, radiation_horse_armor_public)) {
-					NonNullList<ItemStack> stacks = new NonNullList<>(new ArrayList<>(), StackHelper.emptyStack());
-					item.getSubItems(StackHelper.getSearchTab(), stacks);
+					NonNullList<ItemStack> stacks = new NonNullList<>(new ArrayList<>(), ItemStack.EMPTY);
+					item.getSubItems(CreativeTabs.SEARCH, stacks);
 					for (ItemStack stack : stacks) {
 						int packed = RecipeItemHelper.pack(stack);
 						if (!RadArmor.ARMOR_STACK_SHIELDING_BLACKLIST.contains(packed)) {
@@ -543,7 +543,7 @@ public class CraftingRecipeHandler {
 	public static <T extends Enum<T> & IStringSerializable & IMetaEnum> void ingotBlockRecipes(Class<T> enumm, Block block, Item ingot) {
 		T[] values = enumm.getEnumConstants();
 		for (int i = 0, len = values.length; i < len; ++i) {
-			String type = StringHelper.capitalize(StringHelper.getEnumStringName(values[i]));
+			String type = StringHelper.capitalize(values[i].getName());
 			if (!ore_dict_raw_material_recipes) {
 				blockCompress(block, i, "block" + type, new ItemStack(ingot, 1, i));
 			}
@@ -568,7 +568,7 @@ public class CraftingRecipeHandler {
 		String ingot = "ingot" + suffix, block = "block" + suffix;
 		if (OreDictHelper.oreExists(ingot)) {
 			blockCompress(NCBlocks.material_block, meta, block, ingot);
-			addShapelessOreRecipe(OreDictHelper.getPrioritisedCraftingStack(nc.util.StackHelper.emptyStack(), ingot, 9), block);
+			addShapelessOreRecipe(OreDictHelper.getPrioritisedCraftingStack(ItemStack.EMPTY, ingot, 9), block);
 		}
 	}
 	
@@ -661,52 +661,21 @@ public class CraftingRecipeHandler {
 		if (out == null || Lists.newArrayList(inputs).contains(null)) {
 			return;
 		}
-
-		ItemStack outStack;
-		try {
-			if (out instanceof ItemStack) {
-				outStack = StackHelper.fixItemStack(out);
-			}
-			else if (out instanceof Item || out instanceof Block) {
-				outStack = StackHelper.fixItemStack(out);
-			}
-			else if (out instanceof String) {
-				outStack = OreDictHelper.getPrioritisedCraftingStack(StackHelper.emptyStack(), (String) out, 1);
+		ItemStack outStack = StackHelper.fixItemStack(out);
+		if (!outStack.isEmpty() && inputs != null) {
+			String outName = StackHelper.stackPath(outStack);
+			if (RECIPE_COUNT_MAP.containsKey(outName)) {
+				int count = RECIPE_COUNT_MAP.getInt(outName);
+				RECIPE_COUNT_MAP.put(outName, count + 1);
+				outName = outName + "_" + count;
 			}
 			else {
-				return;
+				RECIPE_COUNT_MAP.put(outName, 1);
 			}
+			ResourceLocation location = new ResourceLocation(Global.MOD_ID, outName);
+			IRecipe recipe = supplier.get(location, outStack, inputs);
+			recipe.setRegistryName(location);
+			ForgeRegistries.RECIPES.register(recipe);
 		}
-		catch (Exception e) {
-			return;
-		}
-
-		if (outStack == null || outStack.isEmpty()) return;
-
-		String outName = StackHelper.stackPath(outStack);
-		if (outName == null) outName = StackHelper.stackName(outStack);
-
-		int count = RECIPE_COUNT_MAP.getInt(outName);
-		RECIPE_COUNT_MAP.put(outName, count + 1);
-		String registryName = outName + (count > 0 ? "_" + count : "");
-		ResourceLocation location = new ResourceLocation(Global.MOD_ID, registryName);
-
-		Object[] fixedInputs = new Object[inputs == null ? 0 : inputs.length];
-		if (inputs != null) {
-			for (int i = 0; i < fixedInputs.length; i++) {
-				Object in = inputs[i];
-				if (in == null) { fixedInputs[i] = null; continue; }
-				if (in instanceof ItemStack || in instanceof Item || in instanceof Block) {
-					fixedInputs[i] = (in instanceof ItemStack) ? StackHelper.fixItemStack(in) : StackHelper.fixItemStack(in);
-				}
-				else {
-					fixedInputs[i] = in;
-				}
-			}
-		}
-
-		T recipe = supplier.get(location, outStack, fixedInputs);
-		recipe.setRegistryName(location);
-		ForgeRegistries.RECIPES.register(recipe);
-}
+	}
 }

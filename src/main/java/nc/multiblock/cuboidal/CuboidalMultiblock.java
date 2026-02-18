@@ -224,7 +224,7 @@ public abstract class CuboidalMultiblock<MULTIBLOCK extends CuboidalMultiblock<M
 				}
 				
 				IBlockState state = WORLD.getBlockState(columnPos);
-				if ((!stack.isEmpty() || !state.getMaterial().equals(Material.AIR)) && !nc.util.StackHelper.isItemEqual(stack, StackHelper.blockStateToStack(state))) {
+				if ((!stack.isEmpty() || !state.getMaterial().equals(Material.AIR)) && !stack.isItemEqual(StackHelper.blockStateToStack(state))) {
 					if (getLastError() == null) {
 						setLastError("zerocore.api.nc.multiblock.validation.invalid_axial_symmetry", columnPos, columnPos.x, columnPos.y, columnPos.z, axis.getName());
 					}

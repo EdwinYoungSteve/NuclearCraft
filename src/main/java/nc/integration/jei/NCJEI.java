@@ -128,7 +128,7 @@ public class NCJEI implements IModPlugin {
 	private static List<Object> getBlockList(Predicate<? super Block> predicate) {
 		return ForgeRegistries.BLOCKS.getValuesCollection().stream().filter(predicate).flatMap(x -> {
 			Item item = Item.getItemFromBlock(x);
-			return item instanceof ItemBlock ? LambdaHelper.also(NonNullList.<ItemStack>create(), y -> item.getSubItems(StackHelper.getSearchTab(), y)).stream() : Stream.empty();
+			return item instanceof ItemBlock ? LambdaHelper.also(NonNullList.<ItemStack>create(), y -> item.getSubItems(CreativeTabs.SEARCH, y)).stream() : Stream.empty();
 		}).collect(Collectors.toList());
 	}
 	
@@ -143,14 +143,14 @@ public class NCJEI implements IModPlugin {
 	public static List<Object> getFissionModeratorCrafters() {
 		List<Object> list = getRecipeListInputs(NCRecipes.fission_moderator);
 		ItemStack heavyWaterModerator = new ItemStack(NCBlocks.heavy_water_moderator);
-		list.sort(Comparator.comparingInt(x -> x instanceof ItemStack stack && nc.util.StackHelper.isItemEqual(stack, heavyWaterModerator) ? 0 : 1));
+		list.sort(Comparator.comparingInt(x -> x instanceof ItemStack stack && stack.isItemEqual(heavyWaterModerator) ? 0 : 1));
 		return list;
 	}
 	
 	public static List<Object> getFissionReflectorCrafters() {
 		List<Object> list = getRecipeListInputs(NCRecipes.fission_reflector);
 		ItemStack berylliumCarbonReflector = new ItemStack(NCBlocks.fission_reflector);
-		list.sort(Comparator.comparingInt(x -> x instanceof ItemStack stack && nc.util.StackHelper.isItemEqual(stack, berylliumCarbonReflector) ? 0 : 1));
+		list.sort(Comparator.comparingInt(x -> x instanceof ItemStack stack && stack.isItemEqual(berylliumCarbonReflector) ? 0 : 1));
 		return list;
 	}
 	

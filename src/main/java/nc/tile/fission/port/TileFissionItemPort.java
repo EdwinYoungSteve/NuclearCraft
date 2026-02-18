@@ -161,7 +161,7 @@ public abstract class TileFissionItemPort<PORT extends TileFissionItemPort<PORT,
 			return false;
 		}
 		ItemStack filter = getFilterStacks().get(slot);
-		if (!filter.isEmpty() && !nc.util.StackHelper.isItemEqual(stack, filter)) {
+		if (!filter.isEmpty() && !stack.isItemEqual(filter)) {
 			return false;
 		}
 		return isItemValidForSlotInternal(slot, stack);

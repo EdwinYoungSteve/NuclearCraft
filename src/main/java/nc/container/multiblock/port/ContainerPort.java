@@ -12,7 +12,6 @@ import nc.tile.multiblock.port.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import nc.util.StackHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 
@@ -71,7 +70,7 @@ public abstract class ContainerPort<MULTIBLOCK extends Multiblock<MULTIBLOCK, T>
 				slot.onSlotChanged();
 			}
 			
-			if (StackHelper.getCount(stack) == StackHelper.getCount(stackCopy)) {
+			if (stack.getCount() == stackCopy.getCount()) {
 				return ItemStack.EMPTY;
 			}
 			slot.onTake(player, stack);
