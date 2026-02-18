@@ -556,9 +556,7 @@ public abstract class BasicRecipeHandler extends AbstractRecipeHandler<BasicReci
 	
 	protected static <T> List<T> inputsExcludingIndex(List<T> inputs, int index) {
 		List<T> inputsExcludingIndex = new ArrayList<>(inputs);
-		if (index >= 0 && index < inputsExcludingIndex.size()) {
-			inputsExcludingIndex.remove(index);
-		}
+		inputsExcludingIndex.remove(index);
 		return inputsExcludingIndex;
 	}
 }
